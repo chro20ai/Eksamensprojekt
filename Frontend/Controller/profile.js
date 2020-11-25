@@ -54,6 +54,9 @@ function logout() {
 }
 
 
+
+
+
 // Like funktion
 // For loop hvor den kører en funktion, der laver get requests på brugerer, hvorefter man kan like eller dislike. 
 
