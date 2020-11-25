@@ -9,7 +9,7 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-const userRoute = require('../routes/users.js');
+const userRoute = require("../Routes/users.js");
 
 app.get("/", (req, res) => {
     res.send("The API server is up and running")
