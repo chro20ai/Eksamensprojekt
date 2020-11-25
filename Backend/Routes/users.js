@@ -51,7 +51,6 @@ router.get('/:id', (req, res) => {
 // Delete 
 router.delete('/:id', (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
-        // add the new user
         let parsedData = JSON.parse(data)
         const userId = req.params["id"];
         delete parsedData[userId];
@@ -106,5 +105,21 @@ router.post('/logout', (req, res) => {
             },
     true);
 });    
+
+
+// UPDATE
+router.patch('/:id', (req, res) => {
+    fs.readFile(dataPath, "utf8", (err, data) => {
+        // add the new user
+        let parsedData = JSON.parse(data)
+        const userId = req.params["id"];
+        parsedData[userId] = req.body;
+        fs.writeFile(dataPath, JSON.stringify(parsedData), () => {
+            res.status(200).send(`users id:${userId} updated`);
+        });
+    },
+    true);
+});
+
 
 module.exports = router;

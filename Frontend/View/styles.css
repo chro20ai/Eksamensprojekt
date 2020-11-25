@@ -1,8 +1,5 @@
 body {
-    background-image: url(beach.jpg);
-    height: 160vh;
-    background-size: cover;
-    background-position: center;
+    background: black;
 } 
 
 .login-page{

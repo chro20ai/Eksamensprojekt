@@ -66,53 +66,7 @@ else
             .then(function(response){
                 console.log(response);
             })
-         alert('Welcome');
+         alert('You can now log in to the system');
         window.location = "login.html";
 		}
 }
-
-
-//Localstorage. 
-/*
-const rememberDiv = document.querySelector('.register-form');
-const table = document.querySelector('table');
-//Bruger # fordi det er et inputfelt. 
-const usernameInput = document.querySelector('#usernameid');
-const firstnameInput = document.querySelector('#firstnameid');
-const lastnameInput = document.querySelector('#lastnameid');
-const ageInput = document.querySelector('#ageid');
-const genderInput = document.querySelector('#genderid');
-const interestInput = document.querySelector('#interestid');
-const password1Input = document.querySelector('#passwordid');
-
-const submitBtn = document.querySelector('#submituser');
-
-table.addEventListener('submit', function(e){
-    //Gør at submit ikke gør som den plejer, men at man selv kan definere hvad den skal gøre. 
-    e.preventDefault();
-});
-//"Click" betyder at den skal reagere på et click. 
-submitBtn.addEventListener('click', function(){
-    localStorage.setItem('username', usernameInput.value);
-})
-submitBtn.addEventListener('click', function(){
-    localStorage.setItem('firstname', firstnameInput.value);
-})
-submitBtn.addEventListener('click', function(){
-    localStorage.setItem('lastname', lastnameInput.value);
-})
-submitBtn.addEventListener('click', function(){
-    localStorage.setItem('age', ageInput.value);
-})
-submitBtn.addEventListener('click', function(){
-    localStorage.setItem('gender', genderInput.value);
-})
-submitBtn.addEventListener('click', function(){
-    localStorage.setItem('interest', interestInput.value);
-})
-submitBtn.addEventListener('click', function(){
-    localStorage.setItem('password', password1Input.value);
-})
-*/
-
-//Man kan i chrome se navnet ved at skrive localStorage.getItem("name") i loggen i browseren. 
