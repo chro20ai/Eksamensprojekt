@@ -1,5 +1,6 @@
 const fs = require('fs');
 const express = require('express');
+const { stringify } = require('querystring');
 const router = express.Router()
 
 //https://nodejs.dev/learn/get-http-request-body-data-using-nodejs
@@ -7,6 +8,7 @@ const router = express.Router()
 
 
 const dataPath = '../Model/users.json';
+const likePath = '../Model/likes.json'
 
 //Create
 router.post('/', (req, res) => {
@@ -27,18 +29,6 @@ router.post('/', (req, res) => {
       
 });
 
-// Vise fuldt overblik over profil. 
-
-// Fra GO3
-/*
-export const getUser = (req,res) => {
-    const {id} = req.params; 
-
-    const foundUser = users.find((user) => user.id == id);
-
-    res.send(foundUser);
-}
-*/
 //Vise fuldt overblik
 router.get('/:id', (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
@@ -48,6 +38,7 @@ router.get('/:id', (req, res) => {
         res.send(parsedData[userId]);
     });
 }); 
+
 // Delete 
 router.delete('/:id', (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
@@ -71,10 +62,10 @@ router.post('/login', (req, res) => {
     //her skal bruger-input tages fra req-body
     //her skal hentes database array
     fs.readFile(dataPath, "utf8", (err, data) => {
-        console.log(data)
+        //console.log(data)
         // Userarray kunne også være kaldt parsedData, som jeg har gjort under Delete og Create. 
         const userArray = JSON.parse(data);
-        console.log(userArray)
+        //console.log(userArray)
         for (let i=0; i < userArray.length; i++) {
             /*const index = userArray.indexOf("null")
             if (index > -1) 
@@ -110,7 +101,6 @@ router.post('/logout', (req, res) => {
 // UPDATE
 router.patch('/:id', (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
-        // add the new user
         let parsedData = JSON.parse(data)
         const userId = req.params["id"];
         parsedData[userId] = req.body;
@@ -120,5 +110,50 @@ router.patch('/:id', (req, res) => {
     },
     true);
 });
+
+// DISPLAY PROFILES
+/*router.get('/:id', (req, res) => {
+    fs.readFile(dataPath, "utf8", (err, data) => {
+        let parsedData = JSON.parse(data)
+        const userId = req.params["id"];
+        parsedData[userId] = req.body;
+        fs.writeFile(dataPath, JSON.stringify(parsedData), () => {
+            res.status(200).send(`users id:${userId} displayed`);
+        });
+    },
+    true);
+});
+*/
+
+//Get all users
+router.get('/:id', (req, res) => {
+    fs.readFile(dataPath, "utf8", (err, data) => {
+        const userArray = JSON.parse(data);
+        res.send(userArray);
+    }
+    ,true);
+});
+
+
+router.post('/:id', (req, res) => {
+
+    //her skal bruger-input tages fra req-body
+    //her skal hentes database array
+
+    fs.readFile(likePath, "utf8", (err, data) => {
+    let parsedData = JSON.parse(data)
+    
+    
+    parsedData.push(req.body)
+    //console.log(parsedData)
+    
+    fs.writeFile(likePath, JSON.stringify(parsedData),(e) => {
+        res.status(200).send('new like added');
+    });
+    })
+  
+});
+
+
 
 module.exports = router;
