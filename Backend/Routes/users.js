@@ -111,20 +111,6 @@ router.patch('/:id', (req, res) => {
     true);
 });
 
-// DISPLAY PROFILES
-/*router.get('/:id', (req, res) => {
-    fs.readFile(dataPath, "utf8", (err, data) => {
-        let parsedData = JSON.parse(data)
-        const userId = req.params["id"];
-        parsedData[userId] = req.body;
-        fs.writeFile(dataPath, JSON.stringify(parsedData), () => {
-            res.status(200).send(`users id:${userId} displayed`);
-        });
-    },
-    true);
-});
-*/
-
 //Get all users
 router.get('/:id', (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
