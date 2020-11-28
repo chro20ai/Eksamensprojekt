@@ -12,7 +12,7 @@ function loginValidate() {
         password2 : password2.value 
     }
 
-//Man kan i chrome se navnet ved at skrive localStorage.getItem("name") i loggen i browseren. 
+//Man kan i chrome se navnet ved at skrive localStorage.getItem("username") i loggen i browseren. 
     axios.post("http://localhost:5000/users/login", logindata)
                 .then(function(response){
                     console.log(response);
@@ -23,4 +23,6 @@ function loginValidate() {
                     
                 })
                 .then(() => window.location = "profile.html");
+
 }
+
