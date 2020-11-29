@@ -36,17 +36,33 @@ i++
 }
 
 
-   function likeUser() {
-    axios.post("http://localhost:5000/users/" + localStorage.getItem('likeId'),{
-        likeId: localStorage.getItem('likeId'),
-        loginId: localStorage.getItem('loggedIn')
-
+function likeUser() {
+    axios.post("http://localhost:5000/users/like/", {
+        loggedIn: localStorage.getItem("loggedIn"),
+        id: localStorage.getItem("likeId")
     })
-                .then(function(response){
-                    console.log(response);
+    .then(function(res){
+            for ( i = 0; i < res.data.length; i++){
+                for ( j = 0; j < res.data.length; j++){
 
-})
-}
+                    if ( res.data[i].loggedIn === res.data[j].loggedIn && res.data[i].id === res.data[j].id && j!==i){
+                        return alert('You have already liked this user');
+                    }
+                    else if (res.data[i].loggedIn === res.data[j].id && res.data[i].id === res.data[j].loggedIn && j!==i) {
+                                //return alert("Match");  
+                                axios.post("http://localhost:5000/users/match/match", {
+                                id1 : res.data[i].loggedIn, 
+                                id2 : res.data[j].loggedIn
+                                })  
+                                .then(function(res){
+                                console.log(res);
+                                })  
+                                return alert("Du har et match")
+                                }
+                   }   
+                }
+        })
+    }
 
 //Get full profile
 function getFullProfile() {
@@ -76,4 +92,18 @@ function getFullProfile() {
     })
    
     
+}
+
+function showmatches() {
+    axios.get("http://localhost:5000/users/match/showmatches/")
+    .then(function(res){
+    // Kun have console.log med hvis dataen fra requested skal vises i browserens console.log. 
+    console.log(res);
+    for ( i = 0; i < res.data.length; i++){
+            if ( res.data[i].id1 === localStorage.getItem("loggedIn") || res.data[i].id2 === localStorage.getItem("loggedIn")){
+                return alert("Her er dine matches.");
+            }
+        
+    }
+}) 
 }

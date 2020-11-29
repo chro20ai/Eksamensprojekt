@@ -77,6 +77,7 @@ router.post('/login', (req, res) => {
                 
                 res.status(200).json(signedIn);
                 return
+                
             }
         }
         console.log(req.body)
@@ -120,25 +121,6 @@ router.get('/:id', (req, res) => {
     ,true);
 });
 
-
-router.post('/:id', (req, res) => {
-
-    //her skal bruger-input tages fra req-body
-    //her skal hentes database array
-
-    fs.readFile(likePath, "utf8", (err, data) => {
-    let parsedData = JSON.parse(data)
-    
-    
-    parsedData.push(req.body)
-    //console.log(parsedData)
-    
-    fs.writeFile(likePath, JSON.stringify(parsedData),(e) => {
-        res.status(200).send('new like added');
-    });
-    })
-  
-});
 
 
 
