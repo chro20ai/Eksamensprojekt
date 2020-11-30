@@ -1,6 +1,7 @@
 const fs = require('fs');
 const express = require('express');
 const { stringify } = require('querystring');
+const { parse } = require('path');
 const router = express.Router()
 
 //https://nodejs.dev/learn/get-http-request-body-data-using-nodejs
@@ -45,6 +46,7 @@ router.delete('/:id', (req, res) => {
         let parsedData = JSON.parse(data)
         const userId = req.params["id"];
         delete parsedData[userId];
+        parsedData  = parsedData.filter(function(x) { return x !== null });
         fs.writeFile(dataPath, JSON.stringify(parsedData), () => {
             res.status(200).send(`users id:${userId} removed`);
         });

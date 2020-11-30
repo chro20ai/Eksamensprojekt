@@ -26,6 +26,7 @@ function deleteuser() {
 
 const h1 = document.querySelector('h1')
 const personalGreeting = document.querySelector('.personal-greeting')
+
 //Show your name on profile site. 
 function nameDisplayCheck() {
     if(localStorage.getItem('username')){

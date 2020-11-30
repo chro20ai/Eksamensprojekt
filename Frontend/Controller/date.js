@@ -49,7 +49,6 @@ function likeUser() {
                         return alert('You have already liked this user');
                     }
                     else if (res.data[i].loggedIn === res.data[j].id && res.data[i].id === res.data[j].loggedIn && j!==i) {
-                                //return alert("Match");  
                                 axios.post("http://localhost:5000/users/match/match", {
                                 id1 : res.data[i].loggedIn, 
                                 id2 : res.data[j].loggedIn
@@ -99,11 +98,50 @@ function showmatches() {
     .then(function(res){
     // Kun have console.log med hvis dataen fra requested skal vises i browserens console.log. 
     console.log(res);
+    
     for ( i = 0; i < res.data.length; i++){
-            if ( res.data[i].id1 === localStorage.getItem("loggedIn") || res.data[i].id2 === localStorage.getItem("loggedIn")){
-                return alert("Her er dine matches.");
-            }
         
+        if ( res.data[i].id1 === localStorage.getItem("loggedIn")){
+            console.log(res.data[i].id2);
+            
+                axios.get("http://localhost:5000/users/" + res.data[i].id2)
+                .then(function(res){
+                    //alert(JSON.stringify(res.data));
+                    console.log(res)
+                    
+
+    var myName = JSON.stringify(res.data.firstname);
+    var age = JSON.stringify(res.data.age);
+    var table = document.getElementById("myTableData");
+ 
+    var rowCount = table.rows.length;
+    var row = table.insertRow(rowCount);
+ 
+    row.insertCell(0).innerHTML= `<input type="button" value = "Delete" onClick="Javacsript:deleteRow(this)">`;
+    row.insertCell(1).innerHTML= myName;
+    row.insertCell(2).innerHTML= age;
+                    
+                })
+            
+        }
+        else if ( res.data[i].id2 === localStorage.getItem("loggedIn")){
+            axios.get("http://localhost:5000/users/" + res.data[i].id1)
+                .then(function(res){
+                    //alert(JSON.stringify(res.data.firstname));
+
+                    var myName = JSON.stringify(res.data.firstname);
+                    var age = JSON.stringify(res.data.age);
+                    var table = document.getElementById("myTableData");
+                 
+                    var rowCount = table.rows.length;
+                    var row = table.insertRow(rowCount);
+                 
+                    row.insertCell(0).innerHTML= `<input type="button"  id =  value = "Delete" onClick="deleteRow()">`;
+                    row.insertCell(1).innerHTML= myName;
+                    row.insertCell(2).innerHTML= age;
+                    return
+                })
+        }
     }
 }) 
 }
