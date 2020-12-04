@@ -1,3 +1,18 @@
+//import {User} from '../Model/users'
+
+/*class User{
+    constructor(username, password, firstname, lastname, age, gender, interest){
+        this.username = username
+        this.password = password
+        this.firstname = firstname
+        this.lastname = lastname
+        this.age = age
+        this.gender = gender
+        this.interest = interest
+    }
+}*/
+
+//Getting the user input
 let username = document.getElementById("usernameid");
 let firstname = document.getElementById("firstnameid");
 let lastname = document.getElementById("lastnameid");
@@ -6,6 +21,7 @@ let gender = document.getElementById("genderid");
 let interest = document.getElementById("interestid");
 let password1 = document.getElementById("passwordid");
 
+//Function to validate if user fullfil all requirements
 function validate() {
 var errormessage = ""; 
 
@@ -28,8 +44,8 @@ var errormessage = "";
     if(age.value == "") {
     errormessage += "Skriv din alder i tal\n"
     }
-//error for gender
 
+//error for gender
     if(gender.value == "") {
         errormessage += "What is your gender?\n";
     }
@@ -39,19 +55,18 @@ var errormessage = "";
     errormessage += "Write your interest\n"
 
 //error for password
-
     if (password1.value == "" || password1.value.length <6){
         errormessage += "Submit a password with at least 6 characters\n"
     }
 
-//alert for errors
-
+//If errors have been added to the variable the error messages will be alerted
 if (errormessage != ""){
     alert(errormessage)
 }
 
-else
-		{
+//If the variable is empty it means the user fullfil requirements and user will be created
+else {
+//let userdata = new User(username.value, password1.value, firstname.value, lastname.value, age.value, gender.value, interest.value)
             let userdata = {
                 username : username.value,
                 password1 : password1.value,
@@ -61,10 +76,9 @@ else
                 gender : gender.value, 
                 interest : interest.value
             }
-
-            axios.post("http://localhost:5000/users", userdata)
+            //Posting the data
+            axios.post("http://localhost:3000/users", userdata)
             .then(function(response){
-                console.log(response);
             })
          alert('You can now log in to the system');
         window.location = "login.html";

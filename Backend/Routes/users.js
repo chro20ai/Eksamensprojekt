@@ -9,9 +9,9 @@ const router = express.Router()
 
 
 const dataPath = '../Model/users.json';
-const likePath = '../Model/likes.json'
 
-//Create
+
+//CREATE user
 router.post('/', (req, res) => {
     //her skal bruger-input tages fra req-body
     //her skal hentes database array
@@ -21,8 +21,6 @@ router.post('/', (req, res) => {
     // add the new user
     req.body.id = newUserId 
     parsedData.push(req.body)
-    console.log(parsedData)
-    //data[newUserId.toString()] = req.body;
     fs.writeFile(dataPath, JSON.stringify(parsedData),(e) => {
         res.status(200).send('new user added');
     });
@@ -30,7 +28,7 @@ router.post('/', (req, res) => {
       
 });
 
-//Vise fuldt overblik
+//GET user by id
 router.get('/:id', (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
         let parsedData = JSON.parse(data)
@@ -40,39 +38,28 @@ router.get('/:id', (req, res) => {
     });
 }); 
 
-// Delete 
+// DELETE user by id 
 router.delete('/:id', (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
         let parsedData = JSON.parse(data)
         const userId = req.params["id"];
         delete parsedData[userId];
+        //Element in array will be null when delete. 
+        //I use the filter function to remove the element from the array
         parsedData  = parsedData.filter(function(x) { return x !== null });
         fs.writeFile(dataPath, JSON.stringify(parsedData), () => {
             res.status(200).send(`users id:${userId} removed`);
         });
     },
     true);
-
-    //Måske lave et if statement. Hvis der står "null" i array'et så bliver det automatisk fjernet. Eller det vil måske ikke virke(hvad med kommaet??)
-    //Det skal ikke laves her, men inde i login funktionen, hvor den kigger efter username. Hvis der står "null,", så spring over?.
-    // Det har intet med det den her funktion at gøre. Lav et for-loop i loginfunktionen, der tager højde for "null,", og så skal den .pop(). 
 });
 
-//login
+//POST log in
 router.post('/login', (req, res) => {
-
-    //her skal bruger-input tages fra req-body
-    //her skal hentes database array
     fs.readFile(dataPath, "utf8", (err, data) => {
-        //console.log(data)
-        // Userarray kunne også være kaldt parsedData, som jeg har gjort under Delete og Create. 
         const userArray = JSON.parse(data);
-        //console.log(userArray)
         for (let i=0; i < userArray.length; i++) {
-            /*const index = userArray.indexOf("null")
-            if (index > -1) 
-            { userArray.splice(index, 1) }
-            */
+            //Checking if input data matches data in users.json
         if (req.body.username2 === userArray[i].username && req.body.password2 === userArray[i].password1) {
                 
                 let signedIn = userArray[i];
@@ -82,17 +69,13 @@ router.post('/login', (req, res) => {
                 
             }
         }
-        console.log(req.body)
         res.status(400).send("fejl");   
     },
     true);
 });    
 
-//logout
+//POST log out
 router.post('/logout', (req, res) => {
-
-    //her skal bruger-input tages fra req-body
-    //her skal hentes database array
     fs.readFile(dataPath, "utf8", (err, data) => {
                 res.status(200).json("Logged out succesfully");
                 return
@@ -101,7 +84,7 @@ router.post('/logout', (req, res) => {
 });    
 
 
-// UPDATE
+// UPDATE user by id
 router.patch('/:id', (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
         let parsedData = JSON.parse(data)
@@ -114,7 +97,9 @@ router.patch('/:id', (req, res) => {
     true);
 });
 
-//Get all users
+
+//(Might be able to delete this)
+//GET all users
 router.get('/:id', (req, res) => {
     fs.readFile(dataPath, "utf8", (err, data) => {
         const userArray = JSON.parse(data);
