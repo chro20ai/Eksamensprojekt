@@ -15,6 +15,10 @@ function deleteUser() {
         localStorage.removeItem('username')
         localStorage.removeItem('password')
         localStorage.removeItem('userId')
+        localStorage.removeItem('likeId')
+        localStorage.removeItem('matchId')
+
+
     })
     //Sending client back to the login page
     .then(() => window.location = 'login.html');
