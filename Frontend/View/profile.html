@@ -1,34 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 
     <h1>
-        Du er ikke logget ind. 
+        You are not logged in to the system. 
     </h1>
 
-    <link rel="stylesheet" href="styles.css">
+    <link rel='stylesheet' href='styles.css'>
     <title>Profile site</title>
 </head>
 <body>  
-<button id="startDating" onclick="location.href = 'date.html'">Go to your dating site</button>
+<button id='startDating' onclick="location.href = 'date.html'">Go to your dating site</button>
 
 <br>
 <br>
 
     <table>
-        <button id="submituser" onclick= "deleteuser()">Delete Your User</button>
+        <button id='submituser' onclick= 'deleteUser()'>Delete Your User</button>
         <button onclick="location.href = 'update.html'">Update profile</button>
-        <button id="getuser" onclick= "getuser()">Overview of your profile</button>
+        <button id='getuser' onclick= 'getUser()'>Overview of your profile</button>
     </table>
 
-    <p id="overview"></p>
+    <p id='overview'></p>
+    <p id='displayUsername'></p>
+    <p id='displayPassword'></p>
+    <p id='displayFirstName'></p>
+    <p id='displayLastName'></p>
+    <p id='displayAge'></p>
+    <p id='displayGender'></p>
+    <p id='displayInterest'></p>
+
+
+    <p id='hideButton'></p>
+
 
 <table>
 
 
 
-     <button id="logoutuser" onclick= "logout()">Log Out</button>
+     <button id='logoutuser' onclick= 'logOut()'>Log Out</button>
 </body>
-<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../Controller/profile.js"></script>
+<script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
+    <script src='../Controller/profile.js'></script>
 </html>

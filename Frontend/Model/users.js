@@ -1,4 +1,5 @@
-export class User{
+//User class
+class User{
     constructor(username, password, firstname, lastname, age, gender, interest){
         this.username = username
         this.password = password
@@ -9,5 +10,3 @@ export class User{
         this.interest = interest
     }
 }
-
-//export {User}
