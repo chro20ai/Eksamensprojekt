@@ -106,6 +106,8 @@ document.getElementById('myTableData').style.visibility = 'hidden';
 
 //Show mathces function
 function showMatches() {
+
+
     axios.get('http://localhost:3000/matches/showmatches/')
     .then(function(res){    
     for ( i = 0; i < res.data.length; i++){

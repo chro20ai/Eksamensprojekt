@@ -4,12 +4,12 @@ let password = document.getElementById('passwordid2');
 
 //Funktion der validerer om du er en bruger
 function validateLogIn() {
-    let logindata = {
+    let loginData = {
         username : username.value,
         password : password.value 
     }
     //Checking in ../Routes/users.js if input matches
-    axios.post('http://localhost:3000/users/login', logindata)
+    axios.post('http://localhost:3000/users/login', loginData)
                 .then(function(response){
                     //Setting up local storage for user
                     localStorage.setItem('userId', response.data.id);

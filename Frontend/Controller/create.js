@@ -1,11 +1,11 @@
-//Getting the user input
+//Getting the user input from html
 let username = document.getElementById('usernameid');
+let password = document.getElementById('passwordid');
 let firstname = document.getElementById('firstnameid');
 let lastname = document.getElementById('lastnameid');
 let age = document.getElementById('ageid');
 let gender = document.getElementById('genderid');
 let interest = document.getElementById('interestid');
-let password = document.getElementById('passwordid');
 
 //Function to validate if user fullfil all requirements
 function validateNewUser() {
@@ -17,6 +17,14 @@ if (username.value == '' ) {
 }
 else if (username.value.length  <4){
     errormessage += 'Submit a username with at least 4 characters\n'
+}
+
+//Errors for password
+if (password.value == '' || password.value.length <6){
+    errormessage += 'Please submit a password with at least 6 characters\n'
+}
+else if (password.value.search(/[a-z]/i) < 0 || password.value.search(/[A-Z]/i) < 0 || password.value.search(/[0-9]/) < 0) {
+   errormessage += 'Your password must contain at least one lower case letter, \none upper case letter, \nand a number.'; 
 }
 
 //Error for first name
@@ -46,13 +54,6 @@ if(gender.value == '') {
 if(interest.value == '')
 errormessage += 'Let other people know of your interest\n'
 
-//Errors for password
-if (password.value == '' || password.value.length <6){
-    errormessage += 'Please submit a password with at least 6 characters\n'
-}
-else if (password.value.search(/[a-z]/i) < 0 || password.value.search(/[A-Z]/i) < 0 || password.value.search(/[0-9]/) < 0) {
-   errormessage += 'Your password must contain at least one lower case letter, \none upper case letter, \nand a number.'; 
-}
 
 //If errors have been added to the variable the error messages will be alerted
 if (errormessage != ''){
