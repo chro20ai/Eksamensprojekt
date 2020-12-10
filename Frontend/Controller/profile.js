@@ -1,9 +1,5 @@
-//const app = document.querySelector('div#app');
-
 //Delete User
 function deleteUser() {
-
-    //https://www.w3schools.com/jsref/met_win_confirm.asp
 
     //Confirm if you want to delete the user
     var r = confirm('Are you sure you want to delete this user?');
@@ -36,8 +32,8 @@ function deleteUser() {
     function getUser() {
     axios.get('http://localhost:3000/users/' + localStorage.getItem('userId'))
     .then(function(res){
-        //document.getElementById('overview').innerHTML = `<p>${JSON.stringify(res.data)}</p>`
 
+        //Getting the data using innerHTML
         document.getElementById('displayUsername').innerHTML = `<p>Username: ${JSON.stringify(res.data.username)}</p>`
         document.getElementById('displayPassword').innerHTML = `<p>Password: ${JSON.stringify(res.data.password)}</p>`
         document.getElementById('displayFirstName').innerHTML = `<p>First name: ${JSON.stringify(res.data.firstname)}</p>`
@@ -53,9 +49,10 @@ function deleteUser() {
 
 
     })
+        //Display a button to hide information
         document.getElementById('hideButton').innerHTML = `<button onclick='hideUser()'>Hide information</button>`
 
-        //document.getElementById('overview').style.visibility = 'visible';
+        //Making it visibile. This will only be neccessary if the hide button has been executed
         document.getElementById('displayUsername').style.visibility = 'visible';
         document.getElementById('displayPassword').style.visibility = 'visible';
         document.getElementById('displayFirstName').style.visibility = 'visible';
@@ -63,19 +60,12 @@ function deleteUser() {
         document.getElementById('displayAge').style.visibility = 'visible';
         document.getElementById('displayGender').style.visibility = 'visible';
         document.getElementById('displayInterest').style.visibility = 'visible';
-
-
-
-
-
-
         document.getElementById('hideButton').style.visibility = 'visible';
 
 
 }
-
+    //Function to hide user
     function hideUser(){
-        //document.getElementById('overview').style.visibility = 'hidden';
         document.getElementById('displayUsername').style.visibility = 'hidden';
         document.getElementById('displayPassword').style.visibility = 'hidden';
         document.getElementById('displayFirstName').style.visibility = 'hidden';
@@ -83,7 +73,6 @@ function deleteUser() {
         document.getElementById('displayAge').style.visibility = 'hidden';
         document.getElementById('displayGender').style.visibility = 'hidden';
         document.getElementById('displayInterest').style.visibility = 'hidden';
-
         document.getElementById('hideButton').style.visibility = 'hidden';
 
     }
@@ -92,22 +81,24 @@ function deleteUser() {
 const h1 = document.querySelector('h1')
 const personalGreeting = document.querySelector('.personal-greeting')
 
-//Show your name on profile site. 
+//Show name on profile site. 
 function nameDisplayCheck() {
+    //If there is a username in local storage it should give the name a personal greeting
     if(localStorage.getItem('username')){
         let name = localStorage.getItem('username');
         h1.textContent = 'You are logged in as ' + name;
     }
 }
-//Dette betyder at funtionen bliver kørt til sidst. 
+//Function will be run on load
 document.body.onload = nameDisplayCheck
 
 
-//Log ud function
+//Log out function
 function logOut() {
     
     axios.post('http://localhost:3000/users/logout')
                 .then(function(response){
+                    //Remove local storage once logged out
                     localStorage.removeItem('username')
                     localStorage.removeItem('password')
                     localStorage.removeItem('userId')
@@ -116,5 +107,6 @@ function logOut() {
                 
                     
                 })
+                //Redirect to login page
                 .then(() => window.location = 'login.html');
 }

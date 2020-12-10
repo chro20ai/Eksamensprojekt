@@ -2,7 +2,7 @@
 let username = document.getElementById('usernameid2');
 let password = document.getElementById('passwordid2');
 
-//Funktion der validerer om du er en bruger
+//Function that validates the log in
 function validateLogIn() {
     let loginData = {
         username : username.value,

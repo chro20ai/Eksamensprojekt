@@ -1,25 +1,22 @@
+//Requiring all packages for the route
 const fs = require('fs');
 const express = require('express');
 const { stringify } = require('querystring');
 const { parse } = require('path');
 const router = express.Router()
 
-//https://nodejs.dev/learn/get-http-request-body-data-using-nodejs
-//På ovenstående link om nodejs er der en masse relavante ting at læse om til rapportskrivning. 
-
-
+//Creating a path to the users storage
 const dataPath = '../Model/users.json';
 
 
 //CREATE user
 router.post('/', (req, res) => {
-    //her skal bruger-input tages fra req-body
-    //her skal hentes database array
     fs.readFile(dataPath, 'utf8', (err, data) => {
     let parsedData = JSON.parse(data)
+    //Creating a new user id
     const newUserId = parsedData.length;
-    // add the new user
     req.body.id = newUserId 
+    //Push the user to the array
     parsedData.push(req.body)
     fs.writeFile(dataPath, JSON.stringify(parsedData),(e) => {
         res.status(200).send('new user added');
@@ -32,8 +29,10 @@ router.post('/', (req, res) => {
 router.get('/:id', (req, res) => {
     fs.readFile(dataPath, 'utf8', (err, data) => {
         let parsedData = JSON.parse(data)
+        //Get the user with the id
         const userId = req.params['id'];
         userByIdArray = parsedData[userId];
+        //Send the user with the id
         res.send(parsedData[userId]);
     });
 }); 
@@ -42,9 +41,10 @@ router.get('/:id', (req, res) => {
 router.delete('/:id', (req, res) => {
     fs.readFile(dataPath, 'utf8', (err, data) => {
         let parsedData = JSON.parse(data)
+        //Get the user to delete by id
         const userId = req.params['id'];
         delete parsedData[userId];
-        //Element in array will be null when delete. 
+        //Element in array will be null when deleted. 
         //I use the filter function to remove the element from the array
         parsedData  = parsedData.filter(function(removeNull) { return removeNull !== null });
         fs.writeFile(dataPath, JSON.stringify(parsedData), () => {
@@ -65,8 +65,7 @@ router.post('/login', (req, res) => {
                 let signedIn = userArray[i];
                 
                 res.status(200).json(signedIn);
-                return
-                
+                return 
             }
         }
         res.status(400).send('error posting log in');   
@@ -88,10 +87,11 @@ router.post('/logout', (req, res) => {
 router.patch('/:id', (req, res) => {
     fs.readFile(dataPath, 'utf8', (err, data) => {
         let parsedData = JSON.parse(data)
+        //Get the user to update by id
         const userId = req.params['id'];
         parsedData[userId] = req.body;
         fs.writeFile(dataPath, JSON.stringify(parsedData), () => {
-            res.status(200).send(`users id:${userId} updated`);
+            res.status(200).send(`User with id:${userId} updated`);
         });
     },
     true);

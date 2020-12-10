@@ -58,6 +58,7 @@ function likeUser() {
                     //Check if there is a match
                     else if (res.data[i].loggedIn === res.data[j].id && res.data[i].id === res.data[j].loggedIn && j!==i) {
                                 axios.post('http://localhost:3000/matches/', {
+                                    //Posting the two id's
                                 id1 : res.data[i].loggedIn, 
                                 id2 : res.data[j].loggedIn
                                 })  
@@ -115,9 +116,6 @@ function showMatches() {
         //If the logged in user is the first id in a match it should add the data to the table
         if ( res.data[i].id1 === localStorage.getItem('loggedIn')){
 
-    //I define a new variable that gets the match id
-        //var matchId = res.data[i].matchId
-
         //I save it to local storage
         localStorage.setItem('matchId', res.data[i].matchId)
     
@@ -147,7 +145,7 @@ function showMatches() {
         }
         //The same but with id's switched around
         else if ( res.data[i].id2 === localStorage.getItem('userId')){
-            //var matchId = res.data[i].matchId
+            
             localStorage.setItem('matchId', res.data[i].matchId)
 
             axios.get('http://localhost:3000/users/' + res.data[i].id1)

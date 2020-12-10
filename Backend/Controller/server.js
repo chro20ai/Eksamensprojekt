@@ -1,4 +1,4 @@
-//Downloading all packages for the server:
+//Requiring all packages for the server:
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs');

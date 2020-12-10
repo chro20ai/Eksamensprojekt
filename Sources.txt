@@ -1,0 +1,15 @@
+Sources:
+
+Axios:
+https://nodejs.dev/learn/get-http-request-body-data-using-nodejs
+https://www.youtube.com/watch?v=y9vJMHjKukQ&t=971s
+
+body-parser:
+https://www.npmjs.com/package/body-parser
+
+fs:
+https://www.w3schools.com/nodejs/nodejs_filesystem.asp
+
+cors:
+https://www.npmjs.com/package/cors
+

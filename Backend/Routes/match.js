@@ -1,8 +1,10 @@
+//Requiring all packages for the route
 const fs = require('fs');
 const express = require('express');
 const router = require('./users');
 const routermatch = express.Router()
 
+//Creating a path to the likes and matches storage
 const matchPath = '../Model/match.json';
 const likesPath = '../Model/likes.json';
 
@@ -11,15 +13,16 @@ routermatch.post('/', (req, res) => {
     let content;
      fs.readFile(matchPath, 'utf8', (err, data) => {
      let parsedData = JSON.parse(data);
+     //Creating a mathcId for the match
      const newMatchId = parsedData.length;
      req.body.matchId = newMatchId
+     //Pushing the match to the array
      parsedData.push(req.body)
      fs.writeFile(matchPath, JSON.stringify(parsedData),(e) => {
          content = parsedData
      });
 
      //I need to delete the likes in likes.json to check for new matches
-     //I could only make it use by deleting one like
         fs.readFile(likesPath, 'utf8', (err, data) => {
          let parsedData = JSON.parse(data);
              for(var i=0; i < parsedData.length; i++){
@@ -62,7 +65,6 @@ routermatch.delete('/deletematch/:id', (req, res) => {
         delete parsedData[userId];
         //Filter method removes null element from array
         parsedData = parsedData.filter(function(removeNull) {return removeNull !== null});
-
         fs.writeFile(matchPath, JSON.stringify(parsedData), () => {
             res.status(200).send(`users id:${userId} removed`);
         });
