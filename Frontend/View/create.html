@@ -6,27 +6,46 @@
 </head>
 <body>
 
+<!-- Setting up a div for my log in -->
+
+
     <div class='login-page'>
         <div class='form'>
 
     <table class='register-form'>
-        <label for='create'>Create a user</label><br>
+        <label for='create'></label>Create a user here:</label><br>
         <br>
-        <input type='text' id='usernameid' placeholder='Username'/>
-        <input type='password' id='passwordid' placeholder='Password'/>
-        <input type='text' id='firstnameid' placeholder='Firstname'/>
-        <input type='text' id='lastnameid' placeholder='Lastname'/>
-        <input type='number' id='ageid' placeholder='Age'/>
-        <input type='text' id='genderid' placeholder='Gender'/>
-        <input type='text' id='interestid' placeholder='Interest'/>
+
+        <!-- Inputs -->
+        <p>Type in your username:</p>
+        <input type='text' id='usernameid' placeholder='Username'/> <br>
+        <p>Type in your password:</p>
+        <input type='password' id='passwordid' placeholder='Password'/> <br>
+        <p>Type in your first name:</p>
+        <input type='text' id='firstnameid' placeholder='Firstname'/> <br>
+        <p>Type in your last name:</p>
+        <input type='text' id='lastnameid' placeholder='Lastname'/> <br>
+        <p>Type in your age:</p>
+        <input type='number' id='ageid' placeholder='Age'/> <br>
+        <p>Type in your gender:</p>
+        <input type='text' id='genderid' placeholder='Gender'/> <br>
+        <p>Type in your interest:</p>
+        <input type='text' id='interestid' placeholder='Interest'/> <br>
+
+        <br><br><br>
+
+        <!-- Submit the user -->
+
         <input type='submit' id='submituser' value='Submit' onclick= 'validateNewUser()'/> 
+
+        <br><br>
+
             <a href='login.html'>Or Log In Here</a>
         </p>
     </table>  
 
 </div>
 </div>
-    <div id='message'></div>
 
 </body>
 <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>

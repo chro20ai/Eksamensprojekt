@@ -5,21 +5,32 @@
     <link rel='stylesheet' href='styles.css'>
 </head>
 <body>
+
+    <!-- Setting up divs to style in CSS -->
+
     <div class='login-page'>
     <div class='form'>
+
+        <h3>Welcome to this dating program</h3>
+
+        <p>You can log in or create a user</p>
+
+        <!-- Creating a table to log in -->
 
         <table class='Login-form'>
         <input type='text' id='usernameid2' placeholder='Username'/>
         <input type='password' id='passwordid2' placeholder='Password'/>
             
         </table>
-        <button id='submituser' onclick= 'validateLogIn()'>Log ind</button>
+
+        <!-- Button to log in -->
+        <br>
+        <button id='submituser' onclick= 'validateLogIn()'>Log in</button> <br><br>
         <a href='create.html'>Create a User</a>
 
         </div>
     </div>
     
-    <div id=message></div>
 </body>
 <script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
 <script src='../Controller/login.js'></script>

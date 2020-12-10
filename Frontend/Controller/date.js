@@ -102,7 +102,7 @@ function getFullProfile() {
     
 }
 
-document.getElementById('myTableData').style.visibility = 'hidden';
+document.getElementById('tableMatches').style.visibility = 'hidden';
 
 
 //Show mathces function
@@ -129,7 +129,7 @@ function showMatches() {
     var matchId = JSON.stringify(matchId);
 
     //Getting the data from html
-    var table = document.getElementById('myTableData');
+    var table = document.getElementById('tableMatches');
  
     //Variable to count the number of rows
     var rowCount = table.rows.length;
@@ -141,11 +141,11 @@ function showMatches() {
     row.insertCell(2).innerHTML= interest;
    
                 })
-                document.getElementById('myTableData').style.visibility = 'visible';
+                document.getElementById('tableMatches').style.visibility = 'visible';
         }
         //The same but with id's switched around
         else if ( res.data[i].id2 === localStorage.getItem('userId')){
-            
+
             localStorage.setItem('matchId', res.data[i].matchId)
 
             axios.get('http://localhost:3000/users/' + res.data[i].id1)
@@ -155,7 +155,7 @@ function showMatches() {
     var myName = JSON.stringify(res.data.firstname);
     var interest = JSON.stringify(res.data.interest);
     var matchId = JSON.stringify(matchId);
-    var table = document.getElementById('myTableData');
+    var table = document.getElementById('tableMatches');
  
     var rowCount = table.rows.length;
     var row = table.insertRow(rowCount);
@@ -164,7 +164,7 @@ function showMatches() {
     row.insertCell(1).innerHTML= myName;
     row.insertCell(2).innerHTML= interest;
     
-    document.getElementById('myTableData').style.visibility = 'visible';
+    document.getElementById('tableMatches').style.visibility = 'visible';
 
                     return 
                 })

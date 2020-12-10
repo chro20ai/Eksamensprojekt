@@ -6,9 +6,11 @@
 </head>
 <body>
 
+    <!-- Buttons to swipe and get full profile -->
     <button id='swipe' onclick='swipeUsers()'>Find your first potentiel match</button>
     <button id='getFullProfile' onclick= 'getFullProfile()'>More about this user</button>
 
+    <!-- Paragraphs to show potentiel like -->
     <p id='noMoreUsers'></p>
     <p id='displayFirstname'></p>
     <p id='displayInterest'></p>
@@ -26,6 +28,7 @@
 <br>
 <br>
 
+<!-- Buttons to like and dislike  -->
 
 <button id='like' onclick='likeUser()'>Like</button>
 <button id='dislike' onclick='swipeUsers()'>Dislike</button>
@@ -34,13 +37,17 @@
 <br>
 <br>
 
+<!-- Button to show matches -->
+
 <button id='showmatches' onclick= 'showMatches()'>Show your matches!</button>
 
 <br>
 <br>
 <br>
 
-<table id='myTableData'>
+<!-- Table to display matches -->
+
+<table id='tableMatches'>
     <tr>
         <td>&nbsp;</td>
         <td><b>Name</b></td>
@@ -54,6 +61,8 @@
 <br>
 <br>
 <br>
+
+<!-- Button to go back to profile -->
 
 <button id='backToProfile' onclick="location.href = 'profile.html'">Go back to your profile</button>
 

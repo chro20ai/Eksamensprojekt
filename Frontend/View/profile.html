@@ -10,16 +10,24 @@
     <title>Profile site</title>
 </head>
 <body>  
+
+<!-- Button to go to dating site -->
+
 <button id='startDating' onclick="location.href = 'date.html'">Go to your dating site</button>
 
 <br>
 <br>
+
+    <!-- Table to do stuff with your user -->
+
 
     <table>
         <button id='submituser' onclick= 'deleteUser()'>Delete Your User</button>
         <button onclick="location.href = 'update.html'">Update profile</button>
         <button id='getuser' onclick= 'getUser()'>Overview of your profile</button>
     </table>
+
+    <!-- Paragraphs that can be displayed to show user -->
 
     <p id='displayUsername'></p>
     <p id='displayPassword'></p>
@@ -29,6 +37,7 @@
     <p id='displayGender'></p>
     <p id='displayInterest'></p>
 
+    <!-- Button to hide your user -->
 
     <p id='hideButton'></p>
 
