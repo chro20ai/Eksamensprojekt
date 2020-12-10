@@ -1,0 +1,29 @@
+commit 24a6ee90f315e7ec822abc7d977717b1d1cc6655
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Wed Nov 05 13:39:21 2020 +0100
+  
+    server & client
+
+commit 2aa5184c922d94d605db96da066294263d813702
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Wed Nov 05 12:32:57 2020 +0100
+
+    npm express
+
+commit de66c4d31d65ab8358e8c6daba5b797b2b7d793e
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Wed Nov 05 12:28:26 2020 +0100
+
+    setting up MVC
+
+commit c548d90d982da333e3376360f1166b64e27e1f19
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Tue Nov 05 12:19:49 2020 +0100
+
+    second commit
+
+commit 92c9b3c6f9067819fccbe627864a3a44df698b92
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Tue Nov 05 12:15:29 2020 +0100
+
+    first commit

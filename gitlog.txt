@@ -1,0 +1,119 @@
+commit b19eea80494de5e3d83ae2455eeb230fc8f35617 (HEAD -> master)
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Thu Dec 10 15:01:31 2020 +0100
+
+    changes in html
+
+commit 5ef76dbfb2276e09ba3f4d77e99db5f64240ea6e
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Thu Dec 10 13:13:01 2020 +0100
+
+    Some styling in CSS
+
+commit 318d2615a6fa2c8d732867bdb440bb8e0d69fb29
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Thu Dec 10 12:49:18 2020 +0100
+
+    added my sources and a few comments here and there
+
+commit e3a458f7ab10a70d2af99b4d01f61e9f08587f53
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Wed Dec 9 15:39:48 2020 +0100
+
+    trying to fix minor errors in program
+
+commit 6d6355408de8922db0e2d7b3d7e7f6b34081c759
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Tue Dec 8 14:00:17 2020 +0100
+
+    minor changes to local storage
+
+commit a939511247c37afe88c1334acc302932d68fb684
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Tue Dec 8 13:48:21 2020 +0100
+
+    changes in design
+
+commit 44bd7ff241abdc4ea48a63e7ce98316bf27a9497
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Fri Dec 4 22:59:51 2020 +0100
+
+    Now with empty json-files
+
+commit b5fab24bc77372a8fb724994fcdd43c657ceb5a3
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Fri Dec 4 22:58:59 2020 +0100
+
+    Comments added, delete matches, and other minor adjustments
+
+commit 571411a0f3f83031e4c166b0e8b05d1826ad2191
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Mon Nov 30 10:54:40 2020 +0100
+
+    show matches
+
+commit fc6045a111f07e1f707f61cea7deee92661a9a13
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Sun Nov 29 11:02:37 2020 +0100
+
+    Check for matches
+
+commit fa9a362d2d1750ca0e68c10c5da553231aa6a5a4
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Sat Nov 28 10:40:10 2020 +0100
+
+    some styling in css
+
+commit 5bcad2a080520a6f63af63ae4e653c2dc7cb3932
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Sat Nov 28 10:05:37 2020 +0100
+
+    Get full profile
+
+commit 959954d0b6704c68da8aec87c66343e54def9bd5
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Fri Nov 27 20:38:36 2020 +0100
+
+    Saving likes in JSON
+
+commit 8e82136ead71b866df7831b13994b80faf7f7911
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Wed Nov 25 19:43:57 2020 +0100
+
+    Button to go back to profile site
+
+commit 1315d700ab62623a97d20c5124d9d92dfac4f435
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Wed Nov 25 16:38:13 2020 +0100
+
+    dating site added
+
+commit fd12b69a8177e2844b48d38f0cad38240223341f
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Wed Nov 25 13:30:37 2020 +0100
+
+    file name changed
+
+commit 6d764e32e0fceaa22cae0012931e2b6c5d3e340d
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Wed Nov 25 13:22:33 2020 +0100
+
+    update profile
+
+commit 6b98ed2c1bb753b2a83cd7fca40304f3cd07c8a3
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Wed Nov 25 10:19:26 2020 +0100
+
+    indføring af arbejde inden strukturering
+
+commit 52e598e5c52ef29f23b163eaa12f2412da0a8dd8
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Tue Nov 24 19:53:30 2020 +0100
+
+    NPM packages og set up af server
+
+commit da2dbba76e934af5f0b1e58bef900f1d908972f9
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Tue Nov 24 19:43:25 2020 +0100
+
+    test
