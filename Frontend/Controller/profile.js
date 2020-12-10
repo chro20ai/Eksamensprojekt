@@ -1,3 +1,18 @@
+//Setting up variables for the personal greeting
+const h1 = document.querySelector('h1')
+
+//Show name on profile site. 
+function nameDisplayCheck() {
+    //If there is a username in local storage it should give the name a personal greeting
+    if(localStorage.getItem('username')){
+        let nameToGreet = localStorage.getItem('username');
+        h1.textContent = 'You are logged in as ' + nameToGreet;
+    }
+}
+//Function will be run on load
+document.body.onload = nameDisplayCheck
+
+
 //Delete User
 function deleteUser() {
 
@@ -41,14 +56,8 @@ function deleteUser() {
         document.getElementById('displayAge').innerHTML = `<p>Age: ${JSON.stringify(res.data.age)}</p>`
         document.getElementById('displayGender').innerHTML = `<p>Gender: ${JSON.stringify(res.data.gender)}</p>`
         document.getElementById('displayInterest').innerHTML = `<p>Interest: ${JSON.stringify(res.data.interest)}</p>`
-
-
-
-
-
-
-
     })
+
         //Display a button to hide information
         document.getElementById('hideButton').innerHTML = `<button onclick='hideUser()'>Hide information</button>`
 
@@ -61,9 +70,8 @@ function deleteUser() {
         document.getElementById('displayGender').style.visibility = 'visible';
         document.getElementById('displayInterest').style.visibility = 'visible';
         document.getElementById('hideButton').style.visibility = 'visible';
-
-
 }
+
     //Function to hide user
     function hideUser(){
         document.getElementById('displayUsername').style.visibility = 'hidden';
@@ -76,22 +84,6 @@ function deleteUser() {
         document.getElementById('hideButton').style.visibility = 'hidden';
 
     }
-
-
-const h1 = document.querySelector('h1')
-const personalGreeting = document.querySelector('.personal-greeting')
-
-//Show name on profile site. 
-function nameDisplayCheck() {
-    //If there is a username in local storage it should give the name a personal greeting
-    if(localStorage.getItem('username')){
-        let name = localStorage.getItem('username');
-        h1.textContent = 'You are logged in as ' + name;
-    }
-}
-//Function will be run on load
-document.body.onload = nameDisplayCheck
-
 
 //Log out function
 function logOut() {

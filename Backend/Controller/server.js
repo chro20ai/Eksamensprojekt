@@ -16,8 +16,8 @@ app
 
 //Paths from routes
 const userRoute = require('../Routes/users.js');
-const userRoutelike = require('../Routes/like.js');
-const userRoutematch = require('../Routes/match.js');
+const likeRoute = require('../Routes/like.js');
+const matchRoute = require('../Routes/match.js');
 
 //Message to check if server is running on all routes:
 app
@@ -37,8 +37,8 @@ app
 //Using my routes 
 app
 .use('/users', userRoute)
-.use('/likes', userRoutelike)
-.use('/matches', userRoutematch)
+.use('/likes', likeRoute)
+.use('/matches', matchRoute)
 
 //Running the server
 app.listen(PORT, () => {

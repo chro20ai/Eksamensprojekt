@@ -29,12 +29,12 @@ else if (password.value.search(/[a-z]/i) < 0 || password.value.search(/[A-Z]/i) 
 
 //Error for first name
 if (firstname.value == '') {
-    errormessage += 'Please type in a first name\n'
+    errormessage += 'Please type in your first name\n'
 }
 
 //Error for last name
 if (lastname.value == '') {
-    errormessage += 'Please type in a last name\n'
+    errormessage += 'Please type in your last name\n'
 }
 
 //Errors for age
@@ -47,7 +47,7 @@ else if(age.value > 110){
 
 //Error for gender
 if(gender.value == '') {
-    errormessage += 'Please type in a gender\n';
+    errormessage += 'Please type in your gender\n';
 }
 
 //Error for interest

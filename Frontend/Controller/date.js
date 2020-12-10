@@ -171,7 +171,6 @@ function showMatches() {
         }
     }
 }) 
-
 }
 
 //Function for deleting a match

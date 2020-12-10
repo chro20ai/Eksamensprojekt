@@ -1,6 +1,6 @@
 //Getting the input data form html
-let username = document.getElementById('usernameid2');
-let password = document.getElementById('passwordid2');
+let username = document.getElementById('usernameid');
+let password = document.getElementById('passwordid');
 
 //Function that validates the log in
 function validateLogIn() {
