@@ -97,18 +97,5 @@ router.patch('/:id', (req, res) => {
     true);
 });
 
-
-//(Might be able to delete this)
-//GET all users
-router.get('/:id', (req, res) => {
-    fs.readFile(dataPath, 'utf8', (err, data) => {
-        const userArray = JSON.parse(data);
-        res.send(userArray);
-    }
-    ,true);
-});
-
-
-
 //Exporting the file
 module.exports = router;
