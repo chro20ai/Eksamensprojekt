@@ -1,4 +1,34 @@
-commit b19eea80494de5e3d83ae2455eeb230fc8f35617 (HEAD -> master)
+commit 35f03c5abeb3581b6016bb453b90c859c2cb0658 (HEAD -> master)
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Fri Dec 11 10:46:24 2020 +0100
+
+    final changes
+
+commit e60196fa9c69151619e69911c5d18ac14fd2b0e2
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Fri Dec 11 10:41:27 2020 +0100
+
+    a few more comments
+
+commit 14c8b89ea871e37acd661678b62d8f67f5f44d2e
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Fri Dec 11 10:26:38 2020 +0100
+
+    adding users, likes and matches
+
+commit 68c5ca0a99d996786aefa78252fd0789609f5aee
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Thu Dec 10 16:19:04 2020 +0100
+
+    new git log
+
+commit 524d0e71d96fad461aecc87826ce0e1836d805e4
+Author: Christoffer Rosing <my@emailaddress.com>
+Date:   Thu Dec 10 16:17:35 2020 +0100
+
+    adding git log
+
+commit b19eea80494de5e3d83ae2455eeb230fc8f35617
 Author: Christoffer Rosing <my@emailaddress.com>
 Date:   Thu Dec 10 15:01:31 2020 +0100
 
